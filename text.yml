@@ -1,0 +1,8 @@
+#yaml file is similar to JSON but uses indentation and new lines instead of brackets and commas.
+name: sanjay
+age: 20
+height : 5.7
+weight: 55
+hobbies:
+          -reading: "2 hours"
+          -coding: "5 hours"
