@@ -1,8 +1,13 @@
+# This is a basic GitHub Actions workflow file
+#it automatically runs the jobs when there is a push event in the repository.
+
 name:  "First git hub action"
+#on tells when to run the workflow,here it is set to run after push event
 on: [push]
-jobs: 
+jobs: #job means what to do,here build 
   build:
     runs-on: ubuntu-latest
     steps: 
       - run:  echo "hello world"
       - run : echo "this is my first github action"
+    

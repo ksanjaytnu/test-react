@@ -3,6 +3,11 @@ name: sanjay
 age: 20
 height : 5.7
 weight: 55
+#array
 hobbies:
           -reading: "2 hours"
           -coding: "5 hours"
+#multi-line string
+bio: |
+  sanjay is a software engineer.
+  i am a 21 year old software engineer.  
