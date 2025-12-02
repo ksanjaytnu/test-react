@@ -10,4 +10,7 @@ jobs: #job means what to do,here build
     steps: 
       - run:  echo "hello world"
       - run : echo "this is my first github action"
-    
+      - uses : actions/checkout@v2
+      - uses : actions/setup-node@2
+        with:
+         node-version: '16'
