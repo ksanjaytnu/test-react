@@ -1,20 +1,39 @@
 # This is a basic GitHub Actions workflow file
 #it automatically runs the jobs when there is a push event in the repository.
 
-name:  "First git hub action"
-#on tells when to run the workflow,here it is set to run after push event
-on: [push]
-jobs: #job means what to do,here build 
+name: "First GitHub Action"
+
+on: [push] #on ,which event the workflow will run 
+
+jobs:
   build:
     runs-on: ubuntu-latest
-    steps: 
-      - run:  echo "hello world"
-      - run : echo "this is my first github action"
-      - uses : actions/checkout@v2
-      - uses : actions/setup-node@2
+    steps:
+      - name: Say hello
+        run: echo "hello world"
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-         node-version: '16'
-      - run : npm install
-      - run : npm run build
-      - run : npm test
-      - run : echo " Node is installed sucecssfully"
+          node-version: '16'
+          # cache: 'npm'                 # <- uncomment to enable npm cache
+          # cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        # use `npm ci` if you have a package-lock.json for reproducible installs
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Run tests
+        run: npm test
+
+      - name: Confirm Node
+        run: |
+          node -v
+          npm -v
+          echo "Node is installed successfully"
